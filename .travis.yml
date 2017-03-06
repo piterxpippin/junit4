@@ -1,6 +1,12 @@
 language: java
-script:
-  - jdk_switcher use oraclejdk8
-  - ./mvnw test -B
-  - jdk_switcher use oraclejdk7
-  - ./mvnw test -B
+
+jdk:
+  - oraclejdk8
+  - openjdk7
+
+install: true
+script: ./mvnw verify site:site
+
+cache:
+  directories:
+  - $HOME/.m2
